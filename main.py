@@ -1,5 +1,6 @@
 import sys
 
+from PyQt5 import uic
 from random import randrange
 from PyQt5.QtGui import QPainter, QColor
 from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton
@@ -7,12 +8,13 @@ from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton
 
 class RandomFlag(QMainWindow):
     def __init__(self):
+
         super().__init__()
+        uic.loadUi('Ui.ui', self)
         self.setFixedSize(300, 400)
         self.base = [20, 80, 100, 30]
-        self.button = QPushButton(self)
         self.do_paint = False
-        self.button.clicked.connect(self.paint)
+        self.pushButton.clicked.connect(self.paint)
 
     def paintEvent(self, event):
         if self.do_paint:
