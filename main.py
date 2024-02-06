@@ -3,14 +3,16 @@ import sys
 from PyQt5 import uic
 from random import randrange
 from PyQt5.QtGui import QPainter, QColor
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton
+from PyQt5.QtWidgets import QMainWindow, QApplication
+from UI import Ui_MainWindow
 
 
-class RandomFlag(QMainWindow):
+class RandomEllipse(QMainWindow, Ui_MainWindow):
     def __init__(self):
 
         super().__init__()
-        uic.loadUi('Ui.ui', self)
+        self.setupUi(self)
+        #uic.loadUi('Ui.ui', self)
         self.setFixedSize(300, 400)
         self.base = [20, 80, 100, 30]
         self.do_paint = False
@@ -37,6 +39,6 @@ class RandomFlag(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = RandomFlag()
+    ex = RandomEllipse()
     ex.show()
     sys.exit(app.exec_())
